@@ -1,12 +1,14 @@
 import React from 'react';
 import GameSummary from './GameSummary';
 
-const GameList = () => {
+const GameList = ({ games }) => {
     return(
         <div className="project-list section">
-            <GameSummary />
-            <GameSummary />
-            <GameSummary />
+            {games && games.map(game => {
+                return(
+                    <GameSummary game={game} key={game.id} />
+                )
+            })}
         </div>
     )
 }
