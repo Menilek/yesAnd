@@ -3,8 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import Dashboard from './components/dashboard/Dashboard';
 import GameDetails from './components/games/GameDetails';
-import SignIn from './components/auth/SignIn';
+import LogIn from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
+import CreateGame from './components/games/CreateGame';
 
 class App extends Component {
   render() {
@@ -15,8 +16,9 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Dashboard} />
             <Route path='/game/:id' component={GameDetails} />
-            <Route path='/signin' component={SignIn} />
+            <Route path='/login' component={LogIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/create' component={CreateGame} />
           </Switch>
         </div>
       </BrowserRouter>
