@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Notifications from './Notifications';
 import GameList from '../games/GameList';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
 class Dashboard extends Component{
     render(){
         //console.log(this.props);
@@ -23,9 +25,15 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return{
-        games: state.game.games
+        games: state.firestore.ordered.games
     }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        {collection: 'games'}
+    ])
+)(Dashboard);

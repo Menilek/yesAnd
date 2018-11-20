@@ -16,7 +16,7 @@ body {
   min-height: 100%;
 }
 
-form{
+form {
   padding: 20px;
   margin-top: 60px;
 }
@@ -36,4 +36,8 @@ textarea.materialize-textarea:focus:not([readonly]){
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.notifications {
+  color: white;
 }
