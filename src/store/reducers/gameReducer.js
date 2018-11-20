@@ -7,7 +7,16 @@ const initState = {
 };
 
 const gameReducer = (state = initState, action) => {
-    return state;
+    switch(action.type){
+        case 'CREATE_GAME':
+            console.log('created game', action.game)
+            return state;
+        case 'CREATE_GAME_ERROR':
+            console.log('create game error', action.err)
+            return state;
+        default:
+            return state;
+    }
 }
 
 export default gameReducer;
