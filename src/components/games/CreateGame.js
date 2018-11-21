@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import createGame from '../../store/actions/gameActions';
+import { Redirect } from 'react-router-dom';
 
 class CreateGame extends Component {
     state = {
@@ -20,6 +21,8 @@ class CreateGame extends Component {
     }
 
     render() {
+        const { auth } = this.props;
+        if(!auth.uid) return <Redirect to='/LogIn' />
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="white">
@@ -39,10 +42,16 @@ class CreateGame extends Component {
   }
 }
 
+const mapStateToProps = (state)  => {
+    return{
+        auth: state.firebase.auth
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createGame: (game) =>  dispatch(createGame(game))
     }
 }
 //first param in the connect function is normally mapStateToProps but we don't have it so will use null
-export default connect(null, mapDispatchToProps)(CreateGame);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateGame);

@@ -4,10 +4,12 @@ import GameList from '../games/GameList';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom';
 class Dashboard extends Component{
     render(){
         //console.log(this.props);
-        const { games } = this.props;
+        const { games, auth } = this.props;
+        if(!auth.uid) return <Redirect to='/LogIn' />
         return(
             <div className="dashboard container">
                 <div className="row">
@@ -27,7 +29,8 @@ class Dashboard extends Component{
 const mapStateToProps = (state) => {
     console.log(state);
     return{
-        games: state.firestore.ordered.games
+        games: state.firestore.ordered.games,
+        auth: state.firebase.auth
     }
 }
 
