@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const GameSummary = ({ game }) => {
     return(
@@ -6,7 +7,7 @@ const GameSummary = ({ game }) => {
                 <div className="card-content grey-text text-darken-3">
                     <span className="card-title">{ game.title }</span>
                     <p>Posted by { game.authorFirstName } { game.authorLastName }</p>
-                    <p className="grey-text">19th Nov 15:40</p>
+                    <p className="grey-text">{ moment(game.createdAt.toDate().toString()).calender() }</p>
                 </div>
         </div>
     )

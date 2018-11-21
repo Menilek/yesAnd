@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
+import moment from 'moment';
 
 const GameDetails = (props) => {
   const { game, auth } = props;
@@ -17,7 +18,7 @@ const GameDetails = (props) => {
           </div>
           <div className="card-action grey lighten-4 grey-text">
               <div>Posted by { game.authorFirstName } { game.authorLastName }</div>
-              <div>19th Nov 16:30</div>
+              <div>{ moment(game.createdAt.toDate().toString()).calender() }</div>
           </div>
         </div>
       </div>

@@ -2,11 +2,13 @@ const createGame = (game) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         //make async call to DB
         const firestore = getFirestore();
+        const profile = getState().firebase.profile;
+        const authorID = getState().firebase.auth.uid;
         firestore.collection('games').add({
             ...game,
-            authorFirstName:'Grant',
-            authorLastName: 'Cardone',
-            authorId: 10000000,
+            authorFirstName: profile.firstName,
+            authorLastName: profile.lastName,
+            authorId: authorID,
             createdAt: new Date()
         }).then(() => {
             dispatch({ type: 'CREATE_GAME', game});

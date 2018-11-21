@@ -16,8 +16,8 @@ class CreateGame extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.createGame(this.state)
-        //console.log(this.state);
+        this.props.createGame(this.state);
+        this.props.history.push('/');
     }
 
     render() {
