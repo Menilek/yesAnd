@@ -8,7 +8,7 @@ import moment from 'moment';
 const GameDetails = (props) => {
   const { game, auth } = props;
   
-  if(!auth.id) return <Redirect to='/LogIn' />
+  if(!auth.uid) return <Redirect to='/LogIn' />
 
   if(game) {
     return (
