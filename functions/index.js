@@ -28,7 +28,7 @@ exports.userCreated = functions.auth.user().onCreate(user => {
         .doc(user.uid).get().then(doc => {
             const newUser = doc.data();
             const notification = {
-                content: 'Joined the stage',
+                content: 'joined the stage',
                 user: `${newUser.firstName} ${newUser.lastName}`,
                 time: admin.firestore.FieldValue.serverTimestamp()
             }
