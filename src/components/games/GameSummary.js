@@ -7,7 +7,9 @@ const GameSummary = ({ game }) => {
                 <div className="card-content grey-text text-darken-3">
                     <span className="card-title">{ game.title }</span>
                     <p>Posted by { game.authorFirstName } { game.authorLastName }</p>
-                    <p className="grey-text">{ moment(game.createdAt.toDate().toString()).calender() }</p>
+                    <p className="grey-text">
+                        { moment(game.createdAt.toDate().toString()).calendar() }
+                    </p>
                 </div>
         </div>
     )

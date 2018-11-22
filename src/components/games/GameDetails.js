@@ -7,7 +7,9 @@ import moment from 'moment';
 
 const GameDetails = (props) => {
   const { game, auth } = props;
+  
   if(!auth.id) return <Redirect to='/LogIn' />
+
   if(game) {
     return (
       <div className="container section game-details">
@@ -18,7 +20,7 @@ const GameDetails = (props) => {
           </div>
           <div className="card-action grey lighten-4 grey-text">
               <div>Posted by { game.authorFirstName } { game.authorLastName }</div>
-              <div>{ moment(game.createdAt.toDate().toString()).calender() }</div>
+              <div>{ moment(game.createdAt.toDate().toString()).calendar() }</div>
           </div>
         </div>
       </div>
